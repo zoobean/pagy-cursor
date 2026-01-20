@@ -7,8 +7,10 @@ class Pagy
     alias_method :has_more?, :has_more
 
     def initialize(vars)
-      @vars = DEFAULT.merge(vars.delete_if { |_, v| v.nil? || v == "" })
-      @items = vars[:items] || DEFAULT[:items]
+      vars[:limit] ||= vars[:items]
+      assign_options(**vars)
+      assign_and_check(limit: 1)
+
       @before = vars[:before]
       @after = vars[:after]
       @arel_table = vars[:arel_table]

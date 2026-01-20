@@ -12,7 +12,7 @@ class Pagy
     end
 
     def pagy_uuid_cursor_get_vars(collection, vars)
-      pagy_set_items_from_params(vars) if defined?(ItemsExtra)
+      vars[:items] ||= params[:items] if defined?(params) && params && params[:items]
 
       vars[:arel_table] = collection.arel_table
       vars[:primary_key] = collection.primary_key
@@ -43,7 +43,7 @@ class Pagy
 
         collection = collection.where(sql_comparison)
       end
-      collection.reorder(pagy.order).limit(pagy.items)
+      collection.reorder(pagy.order).limit(pagy.limit)
     end
 
     def pagy_uuid_cursor_has_more?(collection, pagy)
