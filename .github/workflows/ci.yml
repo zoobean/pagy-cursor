@@ -31,10 +31,10 @@ jobs:
           - ruby-version: 3.4
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_81.gemfile
-          - ruby-version: 4.0
+          - ruby-version: "4.0.10"
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_80.gemfile
-          - ruby-version: 4.0
+          - ruby-version: "4.0.10"
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_81.gemfile
       fail-fast: false
@@ -79,10 +79,10 @@ jobs:
           - ruby-version: 3.4
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_81.gemfile
-          - ruby-version: 4.0
+          - ruby-version: "4.0.10"
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_80.gemfile
-          - ruby-version: 4.0
+          - ruby-version: "4.0.10"
             env:
               BUNDLE_GEMFILE: gemfiles/active_record_81.gemfile
       fail-fast: false
